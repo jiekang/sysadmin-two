@@ -14,14 +14,14 @@
 
 * Packaging: Binary Tarball vs. DNF
   * Story Time: Why do we need packages?
+    * Shared Libraries
     * User vs Developer
-    * Let's install an upgrade vs. Let's deliver an upgrade
+      * Let's install an upgrade vs. Let's deliver an upgrade
     * Let's remove a program!
-  * Let's install something we need: meld,
-  * DNF Command overview
+  * Let's install something we need: meld, origin-clients
+  * DNF Quick Command overview
     * dnf (install remove update)
     * dnf (info history)
-    * dnf repoquery (sample: java)
   * Where do packages come from?
     * repolist
     * Alternative repositories
@@ -31,13 +31,17 @@
     * dnf (grouplist groupinstall)
   * What are packages made up of?
     * RPM file (RPM Package Manager)
-    * How do we examine it?
-      * rpm (-ql -qpl --provides --requires)
-      * rpm (--whatrequires --whatprovides)
-    * How do we install or remove it?
-      * rpm (-ivh -e)
     * Extract it
       * rpm2cpio | cpio -idmv
+    * Which package owns this file?
+      * dnf provides
+      * rpm (-qf)
+    * How else can we examine it? How are dependencies expressed?
+      * rpm (-ql -qpl --provides --requires)
+      * rpm (--whatrequires --whatprovides)
+      * dnf repoquery (sample: java)
+    * How else can we install or remove it?
+      * rpm (-ivh -e)
   * What if something goes wrong? Workshop
     * dnf check
     * dnf-exercise.sh
@@ -67,7 +71,8 @@
 * Virtual Machines
   * sudo dnf groupinstall "Virtualization"
   * Setup Alpine VM
-  * Discuss setup of actual VM
+  * Go through sample setup of local ISO (RHEL/Fedora) 
     * Discuss VM workflow
       * SSH into machine
-    
+      * Using the virt-manager GUI
+  * Go through sample setup of QEMU image
